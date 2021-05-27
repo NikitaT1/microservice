@@ -1,4 +1,4 @@
-const { Worker } = require("bullmq");
+import { Worker } from "bullmq";
 const { connection, queueName3 } = require("./config");
 
 const mailWorker = new Worker(queueName3, `${__dirname}/sendEmail.js`, {
@@ -7,4 +7,4 @@ const mailWorker = new Worker(queueName3, `${__dirname}/sendEmail.js`, {
 
 console.info("Worker listening for jobs");
 
-module.exports = mailWorker;
+export default mailWorker;

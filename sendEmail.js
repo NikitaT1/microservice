@@ -1,4 +1,4 @@
-const mailgun = require("mailgun-js");
+import mailgun from "mailgun-js";
 const path = require("path");
 require("dotenv").config();
 
@@ -12,9 +12,7 @@ const mg = mailgun({
 
 async function sendEmail() {
   try {
-    console.log("sendEmail ===> started");
     let filepath = path.join(__dirname, "./report.pdf");
-    console.log("sendEmail ===> filepath", filepath);
     let data = {
       from: "Incoming invoice <me@samples.mailgun.org>",
       to: "postmailer21@gmail.com, YOU@YOUR_DOMAIN_NAME",
@@ -22,8 +20,6 @@ async function sendEmail() {
       text: "Testing some Mailgun awesomness!",
       attachment: filepath,
     };
-
-    console.log("DOMAIN" + DOMAIN);
     mg.messages().send(data, function (error, body) {
       console.log(body);
     });
@@ -32,4 +28,4 @@ async function sendEmail() {
   }
 }
 
-module.exports = sendEmail;
+export default sendEmail;

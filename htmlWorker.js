@@ -1,4 +1,4 @@
-const { Worker } = require("bullmq");
+import { Worker } from "bullmq";
 const { connection, queueName2 } = require("./config");
 
 const htmlWorker = new Worker(queueName2, `${__dirname}/htmlPdfGererator.js`, {
@@ -7,4 +7,4 @@ const htmlWorker = new Worker(queueName2, `${__dirname}/htmlPdfGererator.js`, {
 
 console.info("Worker listening for jobs");
 
-module.exports = htmlWorker;
+export default htmlWorker;
