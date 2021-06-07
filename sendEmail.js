@@ -17,7 +17,7 @@ async function sendEmail() {
       from: "Incoming invoice <me@samples.mailgun.org>",
       to: "postmailer21@gmail.com, YOU@YOUR_DOMAIN_NAME",
       subject: "Invoice recieved",
-      text: "Testing some Mailgun awesomness!",
+      text: "Invoice recieved",
       attachment: filepath,
     };
     mg.messages().send(data, function (error, body) {
